@@ -1,0 +1,1 @@
+Set-DisplayResolution -Width 1600 -Height 1000 -Force
