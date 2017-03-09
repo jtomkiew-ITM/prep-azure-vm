@@ -22,6 +22,6 @@
         }
     },
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Setup-DisplayResolution.ps1',' -Width ', parameters('width'),' -Height', parameters('height'), '\"')]"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Setup-DisplayResolution.ps1', ' -Width ', parameters('width'), ' -Height ', parameters('height'), '\"')]"
     }
 }
