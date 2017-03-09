@@ -7,7 +7,21 @@
     ],
     "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
     "targetOsType": "Windows",
+    "parameters": {
+        "width": {
+            "type": "int",
+            "displayName": "Width",
+            "description": "TODO",
+            "allowEmpty": false
+        },
+        "height": {
+            "type": "int",
+            "displayName": "Height",
+            "description": "TODO",
+            "allowEmpty": false
+        }
+    },
     "runCommand": {
-        "commandToExecute": "powershell.exe -ExecutionPolicy bypass -File Setup-DisplayResolution.ps1"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Setup-DisplayResolution.ps1',' -Width ', parameters('width'),' -Height', parameters('height'), '\"')]"
     }
 }
