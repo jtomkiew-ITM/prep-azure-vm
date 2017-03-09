@@ -12,8 +12,8 @@ foreach($item in $items) {
 }
 
 if ($monitorItem) {
-    New-ItemProperty -Path $monitor.PSPath -Name 'DefaultSettings.XResolution' -Value 1600 -PropertyType DWORD -Force
-    New-ItemProperty -Path $monitor.PSPath -Name 'DefaultSettings.YResolution' -Value 1000 -PropertyType DWORD -Force
+    New-ItemProperty -Path $monitorItem.PSPath -Name 'DefaultSettings.XResolution' -Value 1600 -PropertyType DWORD -Force
+    New-ItemProperty -Path $monitorItem.PSPath -Name 'DefaultSettings.YResolution' -Value 1000 -PropertyType DWORD -Force
 }
 else {
     Write-Host 'No monitor item found!'
