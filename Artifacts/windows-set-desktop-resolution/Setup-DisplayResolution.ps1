@@ -9,25 +9,33 @@ if (-not $Height) {
     throw "Parameter '-Height' is required."
 }
 
-$items = Get-ChildItem 'HKLM:\SYSTEM\CurrentControlSet\Hardware Profiles\UnitedVideo\CONTROL\VIDEO'
-$monitorItem = $false
+$controlSets = Get-ChildItem 'HKLM:\SYSTEM' | Where-Object {$_.Name -like '*ControlSet*'}
+$cards = New-Object 'System.Collections.Generic.List[System.MarshalByRefObject]'
+foreach($cs in $controlSets) {
+    $csCards = Get-ChildItem ($cs.PSPath + '\Hardware Profiles\UnitedVideo\CONTROL\VIDEO') | Where-Object {$_.Name -like '*\{*}'}
+    foreach($card in $csCards) {
+        $cards.Add($card)
+    }
+}
+
+$displays = New-Object 'System.Collections.Generic.List[System.MarshalByRefObject]'
+foreach($card in $cards) {
+    $cardDisplays = Get-ChildItem $card.PSPath | Where-Object {$_.Name -match '\d\d\d\d'}
+    foreach($display in $cardDisplays) {
+        $displays.Add($display)
+    }
+}
+
+$monitors = New-Object 'System.Collections.Generic.List[System.MarshalByRefObject]'
+foreach($display in $displays) {
+    $displayMonitors = Get-ChildItem $display.PSPath | Where-Object {$_.Name -like '*\Mon*'}
+    foreach($monitor in $displayMonitors) {
+        $monitors.Add($monitor)
+    }
+}
+
+$items = $displays + $monitors
 foreach($item in $items) {
-    $target = Get-ChildItem ($item.PSPath + '\0000')
-    if ($target) {
-        $monitorItem = $target
-        Write-Host $target
-    }
-    else {
-        Write-Host $item
-    }
+    New-ItemProperty -Path $item.PSPath -Name 'DefaultSettings.XResolution' -Value $Width -PropertyType DWORD -Force
+    New-ItemProperty -Path $item.PSPath -Name 'DefaultSettings.YResolution' -Value $Height -PropertyType DWORD -Force
 }
-
-if ($monitorItem) {
-    New-ItemProperty -Path $monitorItem.PSPath -Name 'DefaultSettings.XResolution' -Value $Width -PropertyType DWORD -Force
-    New-ItemProperty -Path $monitorItem.PSPath -Name 'DefaultSettings.YResolution' -Value $Height -PropertyType DWORD -Force
-}
-else {
-    Write-Host 'No monitor item found!'
-}
-
-# Set-DisplayResolution -Width $Width -Height $Height -Force # does not work
