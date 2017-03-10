@@ -42,10 +42,10 @@ foreach($item in $items) {
     Write-Host ($item.PSPath)
     if((Get-ItemProperty -Path $item.PSPath -Name $xresolution).$xresolution -ne $Width) {
         New-ItemProperty -Path $item.PSPath -Name $xresolution -Value $Width -PropertyType DWORD -Force | Out-Null
-        Write-Host ('Changed width to ' + $Width)
+        Write-Host ('    Changed width to ' + $Width)
     }
     if((Get-ItemProperty -Path $item.PSPath -Name $yresolution).$yresolution -ne $Height) {
         New-ItemProperty -Path $item.PSPath -Name $yresolution -Value $Height -PropertyType DWORD -Force | Out-Null
-        Write-Host ('Changed height to ' + $Height)
+        Write-Host ('    Changed height to ' + $Height)
     }
 }
