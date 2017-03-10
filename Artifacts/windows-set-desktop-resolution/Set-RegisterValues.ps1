@@ -1,5 +1,5 @@
 param(
-	[int]$Width,
+    [int]$Width,
     [int]$Height
 )
 if (-not $Width) {
@@ -34,8 +34,18 @@ foreach($display in $displays) {
     }
 }
 
+$xresolution = 'DefaultSettings.XResolution'
+$yresolution = 'DefaultSettings.YResolution'
+
 $items = $displays + $monitors
 foreach($item in $items) {
-    New-ItemProperty -Path $item.PSPath -Name 'DefaultSettings.XResolution' -Value $Width -PropertyType DWORD -Force
-    New-ItemProperty -Path $item.PSPath -Name 'DefaultSettings.YResolution' -Value $Height -PropertyType DWORD -Force
+    Write-Host ($item.PSPath)
+    if((Get-ItemProperty -Path $item.PSPath -Name $xresolution).$xresolution -ne $Width) {
+        New-ItemProperty -Path $item.PSPath -Name $xresolution -Value $Width -PropertyType DWORD -Force | Out-Null
+        Write-Host ('Changed width to ' + $Width)
+    }
+    if((Get-ItemProperty -Path $item.PSPath -Name $yresolution).$yresolution -ne $Height) {
+        New-ItemProperty -Path $item.PSPath -Name $yresolution -Value $Height -PropertyType DWORD -Force | Out-Null
+        Write-Host ('Changed height to ' + $Height)
+    }
 }
