@@ -20,6 +20,6 @@
         }
     },
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Set-DisplayResolution.ps1', ' -Width ', parameters('width'), ' -Height ', parameters('height'), '\"')]"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Set-RegisterValues.ps1', ' -Width ', parameters('width'), ' -Height ', parameters('height'), '\"')]"
     }
 }
