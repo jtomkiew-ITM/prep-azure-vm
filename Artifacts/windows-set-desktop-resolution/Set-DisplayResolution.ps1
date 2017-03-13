@@ -1,12 +1,6 @@
 param(
-	[int]$Width,
-    [int]$Height
+    [int]$Width = 1600,
+    [int]$Height = 1000
 )
-if (-not $Width) {
-    throw "Parameter '-Width' is required."
-}
-if (-not $Height) {
-    throw "Parameter '-Height' is required."
-}
 
 Set-DisplayResolution -Width $Width -Height $Height -Force
