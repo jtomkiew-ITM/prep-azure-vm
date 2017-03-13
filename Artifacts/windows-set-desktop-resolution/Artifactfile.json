@@ -11,12 +11,14 @@
         "width": {
             "type": "int",
             "displayName": "Width",
-            "description": "TODO"
+            "description": "defaults to 1600",
+            "allowEmpty": true
         },
         "height": {
             "type": "int",
             "displayName": "Height",
-            "description": "TODO"
+            "description": "defaults to 1000",
+            "allowEmpty": true
         }
     },
     "runCommand": {
