@@ -9,15 +9,7 @@
     ],
     "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
     "targetOsType": "Windows",
-    "parameters": {
-        "directory": {
-            "type": "string",
-            "displayName": "Directory name to create on C drive",
-            "description": "TODO",
-            "allowEmpty": true
-        }
-    },
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Setup-NetworkShare.ps1 ', parameters('directory'), '\"')]"
+        "commandToExecute": "powershell.exe -ExecutionPolicy bypass -File Setup-NetworkShare.ps1"
     }
 }
