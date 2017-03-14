@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
-    "title": "Reboot Computer",
+    "title": "Override RDC Cert Check",
     "description": "TODO",
     "tags": [
         "Windows"
@@ -8,6 +8,6 @@
     "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
     "targetOsType": "Windows",
     "runCommand": {
-        "commandToExecute": "powershell.exe -Command Restart-Computer"
+        "commandToExecute": "powershell.exe -ExecutionPolicy bypass -File OverrideRDCCertCheck.ps1"
     }
 }
