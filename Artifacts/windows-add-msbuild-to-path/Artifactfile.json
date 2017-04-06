@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "Add MSBuild to Path",
+    "description": "TODO",
+    "tags": [
+        "Windows",
+        "MSBuild"
+    ],
+    "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
+    "targetOsType": "Windows",
+    "parameters": {
+        "version": {
+            "type": "string",
+            "displayName": "MSBuild Version",
+            "description": "defaults to '14.0'",
+            "allowEmpty": true
+        }
+    },
+    "runCommand": {
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Add-MsbuildToPath.ps1', ' -version ', parameters('version'), '\"')]"
+    }
+}
