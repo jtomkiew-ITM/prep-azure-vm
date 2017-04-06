@@ -12,8 +12,8 @@
         "version": {
             "type": "string",
             "displayName": "MSBuild Version",
-            "description": "defaults to '14.0'",
-            "allowEmpty": true
+            "description": "e.g. '14.0'",
+            "allowEmpty": false
         }
     },
     "runCommand": {
