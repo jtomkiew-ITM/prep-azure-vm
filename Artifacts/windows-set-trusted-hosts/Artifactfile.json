@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "Set Trusted Hosts",
+    "description": "TODO",
+    "tags": [
+        "Windows",
+        "Powershell"
+    ],
+    "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
+    "targetOsType": "Windows",
+    "parameters": {
+        "value": {
+            "type": "string",
+            "displayName": "Value",
+            "description": "Comma ',' seperated values. Wildcard '*' is supported.",
+            "allowEmpty": false
+        }
+    },
+    "runCommand": {
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Set-TrustedHosts.ps1', ' -value ', parameters('value'), '\"')]"
+    }
+}
