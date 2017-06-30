@@ -1,0 +1,14 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "Download PsTools",
+    "description": "Downloads PsTools to 'C:\\PSTools'",
+    "tags": [
+        "Windows",
+        "PsTools"
+    ],
+    "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
+    "targetOsType": "Windows",
+    "runCommand": {
+        "commandToExecute": "powershell.exe -ExecutionPolicy bypass -File Get-PsTools.ps1"
+    }
+}
