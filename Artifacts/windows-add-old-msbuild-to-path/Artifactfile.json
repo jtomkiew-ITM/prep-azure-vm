@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
     "title": "Add MSBuild to Path",
-    "description": "TODO",
+    "description": "For VS2015 and (probably) below",
     "tags": [
         "Windows",
         "MSBuild"
@@ -17,6 +17,6 @@
         }
     },
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Add-MsbuildToPath.ps1', ' -version ', parameters('version'), '\"')]"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./Add-OldMsbuildToPath.ps1', ' -version ', parameters('version'), '\"')]"
     }
 }
