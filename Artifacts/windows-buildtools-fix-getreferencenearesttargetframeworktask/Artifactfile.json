@@ -1,0 +1,14 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "Adds Microsoft.VisualStudio.Component.NuGet.BuildTools and Microsoft.Net.Component.4.5.TargetingPack to BuildTools 2017",
+    "description": "see: https://developercommunity.visualstudio.com/content/problem/137779/the-getreferencenearesttargetframeworktask-task-wa.html",
+    "tags": [
+        "Windows",
+        "BuildTools"
+    ],
+    "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
+    "targetOsType": "Windows",
+    "runCommand": {
+        "commandToExecute": "powershell.exe -ExecutionPolicy bypass -File Fix-GetReferencANearestTargetFrameworkTask.ps1"
+    }
+}
