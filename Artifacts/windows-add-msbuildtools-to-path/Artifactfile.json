@@ -13,7 +13,7 @@
         "pathToAdd": {
             "type": "string",
             "displayName": "path to add",
-            "allowEmpty": false
+            "allowEmpty": true
         }
     },
     "runCommand": {
