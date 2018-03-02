@@ -9,6 +9,6 @@
     "iconUri": "https://github.com/jtomkiew-ITM/prep-azure-vm/raw/master/Icons/greenshell.png",
     "targetOsType": "Windows",
     "runCommand": {
-        "commandToExecute": "powershell.exe -ExecutionPolicy bypass -File Fix-GetReferencANearestTargetFrameworkTask.ps1"
+        "commandToExecute": "powershell.exe -ExecutionPolicy bypass -File Fix-Target.ps1"
     }
 }
