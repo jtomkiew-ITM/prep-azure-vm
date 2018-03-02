@@ -1,6 +1,4 @@
-param(
-    [string] $pathToAdd
-)
+$pathToAdd = "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\amd64"
 
 if (-not (Test-Path $pathToAdd)) {
     throw "Path '$pathToAdd' does not exists"
